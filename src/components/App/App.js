@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StudentsList from '../StudentsList';
 import EditStudentDetails from '../EditStudentDetails';
+import AddStudent from '../AddStudent';
 
 class App extends Component {
 
@@ -26,6 +27,10 @@ class App extends Component {
       });
   }
 
+  addStudent(){
+
+  }
+
   render() {
     return (
         <div className="container-fluid mt-5">
@@ -48,6 +53,14 @@ class App extends Component {
                 <div className="col-4">
                     <EditStudentDetails editStudent={this.editStudent} ref={this.editStudentRef}/>
                 </div>
+            </div>
+            <div className="row">
+                <div className="col-6">
+                    <AddStudent addStudent={this.addStudent} studyPrograms={this.state.students.map(s => s.module)}/>
+                </div>
+            </div>
+            <div className="row">
+                
             </div>
         </div>
     );

@@ -6,14 +6,24 @@ import 'font-awesome/css/font-awesome.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App';
+import './components/App/sb-admin.css';
 import * as serviceWorker from './serviceWorker';
-import {listStudents} from "./repository/studentRepository";
+import {studyProgramServiceModule} from "./services/studyProgramService";
+import {studentServiceModule} from "./services/studentService";
+import MainApp from './components/App/MainApp';
 
 
-const data = listStudents();
+const studyProgramService = studyProgramServiceModule();
 
-ReactDOM.render(<App students={data}/>, document.getElementById('root'));
+const studentService = studentServiceModule();
+
+ReactDOM.render(<MainApp studyProgramService={studyProgramService} studentService={studentService}/>, document.getElementById('root'));
+
+
+//const data = listStudents();
+
+
+//ReactDOM.render(<App students={data}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
